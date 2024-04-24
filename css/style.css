@@ -4,6 +4,180 @@
   box-sizing: border-box;
 }
 
-body {
-  background-color: blue;
+body,
+html {
+  height: 100%;
+  margin: 0;
+  font-size: 18px;
+  scroll-behavior: smooth;
+  background: white; /* fallback for old browsers */
+}
+
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+::-webkit-scrollbar-track {
+  width: 3px;
+  box-shadow: inset 0 0 5px #1a202c;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  width: 3px;
+  background: rgb(96, 22, 22);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(238, 162, 162);
+}
+
+#alertPlaceholder {
+  position: absolute;
+  top: 50%;
+  bottom: 50%;
+}
+
+.navbar {
+  background-color: transparent;
+  transition: background-color 0.3s ease-in-out;
+  color: white;
+}
+
+.navbar .navbar-brand {
+  font-weight: 900;
+  font-size: 1.5rem;
+  color: white;
+  font-family: "Splash", cursive;
+}
+
+.navbar .navbar-brand.scrolled {
+  font-weight: 900;
+  font-size: 1.5rem;
+  color: #1a202c;
+}
+
+.navbar #navbarNav ul li a {
+  font-weight: 700;
+  color: white;
+  font-family: "Splash", cursive;
+  transition: all 0.3s ease-in-out;
+  letter-spacing: 2px;
+}
+
+.navbar #navbarNav ul li a:hover {
+  color: rgb(42, 42, 42);
+}
+
+.navbar #navbarNav ul li a.scrolled {
+  font-weight: 700;
+  color: #1a202c;
+}
+
+.navbar.scrolled {
+  background-color: white; /* Adjust the color as needed */
+  color: #1a202c;
+}
+
+.landing-bg {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../assets/img/sportscar.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.landing-bg .heading {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-items: center;
+  color: white;
+}
+
+.landing-bg .heading h1 {
+  font-family: "Splash", cursive;
+  text-align: center;
+  font-size: 4rem;
+  font-weight: 900;
+  text-shadow: black 2px 2px;
+}
+
+.landing-bg .heading button {
+  width: 250px;
+  height: 65px;
+  border-radius: 8px;
+  margin-top: 10px;
+  letter-spacing: 3px;
+  background: transparent;
+  color: white;
+  font-family: "Splash", cursive;
+  font-size: 1.8rem;
+  font-weight: 900;
+  line-height: 5px;
+  outline: none;
+  border: 0.5px solid white;
+  transition: all 0.3s ease-in-out;
+}
+
+.landing-bg .heading button:hover {
+  background: rgba(255, 255, 255, 0.537);
+  color: #1a202c;
+  outline: #1a202c;
+}
+
+main {
+  min-height: 100vh;
+  width: 100%;
+}
+
+main section.cars {
+  margin-top: 10px;
+}
+
+main section.cars .card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+main section.cars .card img {
+  max-height: 400px;
+}
+
+main section.cars .card .card-footer {
+  display: flex;
+  justify-content: space-around;
+}
+
+main section.cars .card .card-footer button {
+  width: 45%;
+  height: 56px;
+  border-radius: 8px;
+  border: none;
+  transition: all 0.3s ease-in-out;
+}
+
+main section.cars .card .card-footer button.edit {
+  color: #1a202c;
+  outline: 1px solid #1a202c;
+}
+
+main section.cars .card .card-footer button.edit:hover {
+  color: white;
+  background: #1a202c;
+}
+
+main section.cars .card .card-footer button.delete {
+  /* margin-left: 15px; */
+  color: rgb(96, 22, 22);
+  outline: 1px solid rgb(96, 22, 22);
+}
+
+main section.cars .card .card-footer button.delete:hover {
+  color: white;
+  background: rgb(96, 22, 22);
 }
