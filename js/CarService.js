@@ -23,6 +23,15 @@ class CarService {
     });
   }
 
+  // Delete a car by ID
+  deleteCar(carId) {
+    return $.ajax({
+      url: `${this.apiUrl}/${carId}`,
+      method: "DELETE",
+      dataType: "json",
+    });
+  }
+
   // Render cars to the car-grid div
   renderCars(cars) {
     cars.forEach((car) => {

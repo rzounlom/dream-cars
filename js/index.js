@@ -66,4 +66,37 @@ $(document).ready(function () {
         console.log("Error updating car:", error);
       });
   });
+
+  //delete a car event listener
+  $(document).on("click", ".delete", function () {
+    const carId = $(this).attr("data-id"); // Get
+    console.log("id of car to delete", carId);
+
+    $("#deleteConfirmationModal").data("car-id-to-delete", carId); // Store carId in the modal's data
+    $("#deleteConfirmationModal").modal("show"); // Show the confirmation modal
+  });
+
+  //delete a car once the user confirms
+  $("#confirmDelete").click(function () {
+    const carId = $("#deleteConfirmationModal").data("car-id-to-delete");
+    $("#deleteConfirmationModal").modal("hide"); // Hide the confirmation modal
+
+    //delete car using the car id
+    carService
+      .deleteCar(carId)
+      .done(() => {
+        // Notify the user that the car was deleted
+        showAlert("Car deleted successfully!");
+
+        // Refresh the car list after deletion
+        $("#car-grid").empty(); // Clear the current list
+        carService.getAllCars().done((cars) => {
+          carService.renderCars(cars);
+        });
+      })
+      .fail((error) => {
+        console.log("Error deleting car:", error);
+        showAlert("Error deleting car!", "danger");
+      });
+  });
 });
