@@ -13,6 +13,15 @@ class CarService {
     });
   }
 
+  // Fetch a specific car by ID from the API
+  getCarById(carId) {
+    return $.ajax({
+      url: `${this.apiUrl}/${carId}`,
+      method: "GET",
+      dataType: "json",
+    });
+  }
+
   // Create a new car
   createCar(carData) {
     return $.ajax({
@@ -29,6 +38,16 @@ class CarService {
       url: `${this.apiUrl}/${carId}`,
       method: "DELETE",
       dataType: "json",
+    });
+  }
+
+  // Update a car by ID
+  updateCar(carId, updatedData) {
+    return $.ajax({
+      url: `${this.apiUrl}/${carId}`,
+      method: "PUT",
+      dataType: "json",
+      data: updatedData,
     });
   }
 
